@@ -1,45 +1,42 @@
-<h3>SURVEY FORM</h3>
 <div [hidden]="submitted" style="width:50%;height:50%">
     <form #newForm="ngForm">
-            <div class="form-group">
-                <label for="fName">FIRST NAME</label>
-                <input class="form-control" type="text" id="fName" 
-                 required [(ngModel)]="object.firstName" name="fName"  #fName="ngModel">
-                    <div *ngIf="fName.invalid && (fName.dirty || fName.touched)"
-                        class="alert alert-danger">
-                        <div *ngIf="fName.errors.required">
-                            First Name is required
-                        </div>
-                    </div>
+        <h3>SURVEY FORM</h3>
+        <div class="form-group">
+            <label for="fName">FIRST NAME</label>
+            <input class="form-control" type="text" id="fName" required [(ngModel)]="object.firstName" name="fName" #fName="ngModel">
+            <div *ngIf="fName.invalid && (fName.dirty || fName.touched)" class="alert alert-danger">
+                <div *ngIf="fName.errors.required">
+                    First Name is required
+                </div>
             </div>
-            <div class="form-group">
-                <label for="lName">LAST NAME</label> 
-                <input class="form-control" type="text" id="lName"   
-                 required [(ngModel)]="object.lastName" name="lName" #lName="ngModel">
-                    <div *ngIf="lName.invalid && (lName.dirty || lName.touched)"
-                        class="alert alert-danger">
-                        <div *ngIf="lName.errors.required">
-                            Last Name is required
-                        </div>
-                    </div>
+        </div>
+        <div class="form-group">
+            <label for="lName">LAST NAME</label>
+            <input class="form-control" type="text" id="lName" required [(ngModel)]="object.lastName" name="lName" #lName="ngModel">
+            <div *ngIf="lName.invalid && (lName.dirty || lName.touched)" class="alert alert-danger">
+                <div *ngIf="lName.errors.required">
+                    Last Name is required
+                </div>
             </div>
-            <div class="form-group"> 
-                <label for="gender">GENDER</label><br>
-                <label class="radio-inline"><input type= "radio" name="gender" id="gender" value="male" 
-                    [(ngModel)]="selectedGender">Male</label>
-                <label class="radio-inline"><input type= "radio" name="gender" id="gender" value="female" 
-                    [(ngModel)]="selectedGender">female</label>
-            </div>
-            <div class="form-group">
-                <label for="year">YEAR</label>
-                <select class="form-control" id="year" [(ngModel)]="selectedYear" name="year">
-                    <option *ngFor="let year of years" value="year">{{year}}</option>
-                </select>
-            </div>
-            <div>
-                <button type="button" class="btn-btn-default" [disabled]="!newForm.form.valid" (click)="onClick()">APPLY</button>
-            </div>
+        </div>
+        <div class="form-group">
+            <label for="gender">GENDER</label>
+            <br>
+            <label class="radio-inline">
+                <input type="radio" name="gender" id="gender" value="male" [(ngModel)]="selectedGender">Male</label>
+            <label class="radio-inline">
+                <input type="radio" name="gender" id="gender" value="female" [(ngModel)]="selectedGender">female</label>
+        </div>
+        <div class="form-group">
+            <label for="year">YEAR</label>
+            <select class="form-control" id="year" [(ngModel)]="selectedYear" name="year">
+                <option *ngFor="let year of years" value="year">{{year}}</option>
+            </select>
+        </div>
+        <div>
+            <button type="button" class="btn-btn-default" [disabled]="!newForm.form.valid" (click)="onClick()">APPLY</button>
+        </div>
     </form>
 </div>
 
-<app-question>[objects]="object" [year]="selectedYear" [gender]="selectedGender"</app-question>
+<app-question [objects]="object" [year]="selectedYear" [gender]="selectedGender" [submitted]="submitted"></app-question>

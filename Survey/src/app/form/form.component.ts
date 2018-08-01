@@ -8,21 +8,21 @@ import { QuestionsComponent } from '../questions/questions.component';
     styleUrls: ['./form.component.css']
 })
 export class FormComponent {
-    submitted= false;
-    selectedGender:string = 'male';
-    selectedYear:string = '1994';
-    years:string[] = ['1994','1995','1996'];
+    submitted = false;
+    selectedGender: string = 'male';
+    selectedYear: string = '1994';
+    years: string[] = ['1994', '1995', '1996'];
     firstName: string;
     lastName: string;
-    gender: string[] = ['male','female'];
-    object= new Form('','');
-   
+    gender: string[] = ['male', 'female'];
+    object = new Form('', '');
+
     onClick() {
-        this.submitted= true;
+        this.submitted = true;
         console.log(this.submitted);
     }
-    onSubmit(){
-        this.submitted=true;
+    onSubmit() {
+        this.submitted = true;
     }
 
 

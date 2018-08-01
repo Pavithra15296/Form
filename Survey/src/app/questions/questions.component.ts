@@ -8,12 +8,13 @@ import { QuestionService } from '../questions.service';
     templateUrl: './questions.component.html',
     styleUrls: ['questions.component.css']
 })
-export class QuestionsComponent implements OnChanges{
-    @Input() objects: Form;    
+export class QuestionsComponent implements OnChanges {
+    @Input() objects: Form;
     @Input() year: string;
-    @Input() gender: string; 
-    
-    constructor(private questionService:QuestionService){}
+    @Input() gender: string;
+    @Input() submitted: boolean;
+
+    constructor(private questionService: QuestionService) { }
 
     ngOnChanges(changes: SimpleChanges) {
         console.log(changes);
@@ -22,17 +23,17 @@ export class QuestionsComponent implements OnChanges{
             let change = changes[objectName];
             let current = JSON.stringify(change.currentValue);
             let previous = JSON.stringify(change.previousValue);
-            if(current === 'male'){
-                return this.questionService.getmaleQuestions();   
-                }
-            else if(current==='female'){
-                return this.questionService.getfemaleQuestions();
+            if ((objectName === 'gender') && (current === 'male')) {
+                return this.questionService.print('male');
             }
-            
+            else if ((objectName === 'gender') && (current === 'female')) {
+                return this.questionService.print('female');
+            }
+
         }
 
     }
-    
 
-    
+
+
 }

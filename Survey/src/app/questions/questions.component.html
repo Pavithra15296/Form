@@ -1,3 +1,16 @@
-<div>
-    <div><h3>Welcome to this Survey {{objects.firstName}} {{objects.lastName}} </h3></div>
+<div [hidden]="!submitted">
+    <div>
+        <h3>Welcome to this Survey {{objects.firstName}} {{objects.lastName}} </h3>
+    </div>
+    <table>
+        <tr>
+            <td *ngFor="let ques of questions;let i=index">{{i}}{{ques}}</td>
+            <td><div><label class="radio-inline">
+                    <input type="radio" name="option" id="option" value="yes">Yes</label>
+                    <label class="radio-inline">
+                    <input type="radio" name="option" id="option" value="no">No</label>
+                </div>
+            </td>
+        </tr>
+    </table>
 </div>

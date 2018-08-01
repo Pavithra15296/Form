@@ -1,9 +1,9 @@
-export class Form{
+export class Form {
     constructor(
-    firstName: string,
-    lastName: string,
-    year?:string,
-    gender?:string
-    ){}
-    
+        firstName: string,
+        lastName: string,
+        year?: string,
+        gender?: string
+    ) { }
+
 }
