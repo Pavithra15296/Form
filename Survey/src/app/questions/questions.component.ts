@@ -15,25 +15,25 @@ export class QuestionsComponent implements OnChanges {
     @Input() submitted: boolean;
 
     constructor(private questionService: QuestionService) { }
+    acceped=false;
 
     ngOnChanges(changes: SimpleChanges) {
-        console.log(changes);
-        for (let objectName in changes) {
-            console.log(objectName);
-            let change = changes[objectName];
-            let current = JSON.stringify(change.currentValue);
-            let previous = JSON.stringify(change.previousValue);
-            if ((objectName === 'gender') && (current === 'male')) {
-                return this.questionService.print('male');
-            }
-            else if ((objectName === 'gender') && (current === 'female')) {
-                return this.questionService.print('female');
-            }
+        
+            for (let objectName in changes) {
+                console.log(objectName);
+                let change = changes[objectName];
+                let current = JSON.stringify(change.currentValue);
+                let previous = JSON.stringify(change.previousValue);
 
+                if ((objectName === 'gender') && (current === 'male')) {
+                    return this.questionService.print('male');
+                }
+                else if ((objectName === 'gender') && (current === 'female')) {
+                    return this.questionService.print('female');
+                }
         }
-
     }
 
-
-
 }
+
+
